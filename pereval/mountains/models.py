@@ -41,7 +41,7 @@ class Mountain(models.Model):
     connect = models.CharField(max_length=255, blank=True)
     add_time = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    coord= models.ForeignKey(Coordinates, on_delete=models.CASCADE)
+    coord= models.OneToOneField(Coordinates, on_delete=models.CASCADE)
     level = models.ForeignKey(Level, on_delete=models.CASCADE)
     status = models.CharField(max_length=3, choices=STATUS, default=NEW)
 
